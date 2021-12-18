@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Lol Name Checker</string>
+    <string name="region_hint">Region</string>
+    <string name="summoner_name_hint">Your Summoner Name</string>
+    <string name="checked_summoner_name_hint">Check For...</string>
+    <string name="search">Search</string>
+    <string name="number_games"><b><big>In the last %1$s games,</big></b></string>
+    <string name="played_with"><b><big>%1$s has played with %2$s</big></b></string>
+    <string name="games_played"><b><big>%1$d</big></b></string>
+    <string name="times"><b><big>times!</big></b></string>
+    <string name="empty_input_error">Make sure all of the input fields are filled before searching.</string>
+</resources>

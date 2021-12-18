@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.lolnamechecker.overview.OverviewViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.lolnamechecker.overview.OverviewFragment">
+
+        <TextView
+            android:id="@+id/number_games"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@{@string/number_games(viewModel.numberMatches)}"
+            android:paddingBottom="20dp"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@id/played_with"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/played_with"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@{@string/played_with(viewModel.playerName, viewModel.searchName)}"
+            android:paddingBottom="20dp"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@id/games_played"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/games_played"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@{@string/games_played(viewModel.count)}"
+            android:paddingBottom="20dp"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toTopOf="@id/times"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/times"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@{@string/times}"
+            android:textSize="25dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/status_image"/>
+
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/times"
+            app:riotApiStatus="@{viewModel.status}" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/summoner_name"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="Summoner Name"
+            android:hint="@string/summoner_name_hint"
+            android:padding="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/status_image">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/summoner_name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/checked_summoner_name"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="Summoner Name"
+            android:hint="@string/checked_summoner_name_hint"
+            android:padding="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/summoner_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/checked_summoner_name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/search"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checked_summoner_name"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
